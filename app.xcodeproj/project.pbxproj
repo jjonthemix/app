@@ -63,16 +63,15 @@
 		4083858218FF152E000DC352 /* DefaultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4083858018FF152E000DC352 /* DefaultCell.xib */; };
 		4083858618FF2192000DC352 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4083858318FF2192000DC352 /* Configuration.plist */; };
 		4083858718FF2192000DC352 /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4083858518FF2192000DC352 /* Configuration.m */; };
-		4083858918FF31AC000DC352 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4083858818FF31AC000DC352 /* Localizable.strings */; };
-		4083858B18FF324E000DC352 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4083858A18FF324E000DC352 /* MainViewController.xib */; };
-		4083858D18FF3268000DC352 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4083858C18FF3268000DC352 /* RightViewController.xib */; };
-		4083858F18FF327B000DC352 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4083858E18FF327B000DC352 /* LeftViewController.xib */; };
 		4083859518FF3563000DC352 /* LeftMenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4083859118FF3563000DC352 /* LeftMenuIcon.png */; };
 		4083859618FF3563000DC352 /* LeftMenuIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4083859218FF3563000DC352 /* LeftMenuIcon@2x.png */; };
 		4083859718FF3563000DC352 /* RightMenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4083859318FF3563000DC352 /* RightMenuIcon.png */; };
 		4083859818FF3563000DC352 /* RightMenuIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4083859418FF3563000DC352 /* RightMenuIcon@2x.png */; };
 		4083859B18FF3778000DC352 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4083859918FF3778000DC352 /* Logo.png */; };
 		4083859C18FF3778000DC352 /* Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4083859A18FF3778000DC352 /* Logo@2x.png */; };
+		408385A018FF3FE4000DC352 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4083859F18FF3FE4000DC352 /* MainViewController.xib */; };
+		408385A218FF404E000DC352 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408385A118FF404E000DC352 /* RightViewController.xib */; };
+		408385A418FF4092000DC352 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408385A318FF4092000DC352 /* LeftViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,16 +218,15 @@
 		4083858318FF2192000DC352 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		4083858418FF2192000DC352 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		4083858518FF2192000DC352 /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
-		4083858818FF31AC000DC352 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../../app1/app/Localizable.strings; sourceTree = "<group>"; };
-		4083858A18FF324E000DC352 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../../app1/app/MainViewController.xib; sourceTree = "<group>"; };
-		4083858C18FF3268000DC352 /* RightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RightViewController.xib; path = ../../app1/app/RightViewController.xib; sourceTree = "<group>"; };
-		4083858E18FF327B000DC352 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftViewController.xib; path = ../../app1/app/LeftViewController.xib; sourceTree = "<group>"; };
 		4083859118FF3563000DC352 /* LeftMenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftMenuIcon.png; sourceTree = "<group>"; };
 		4083859218FF3563000DC352 /* LeftMenuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LeftMenuIcon@2x.png"; sourceTree = "<group>"; };
 		4083859318FF3563000DC352 /* RightMenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RightMenuIcon.png; sourceTree = "<group>"; };
 		4083859418FF3563000DC352 /* RightMenuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RightMenuIcon@2x.png"; sourceTree = "<group>"; };
 		4083859918FF3778000DC352 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		4083859A18FF3778000DC352 /* Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@2x.png"; sourceTree = "<group>"; };
+		4083859F18FF3FE4000DC352 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		408385A118FF404E000DC352 /* RightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightViewController.xib; sourceTree = "<group>"; };
+		408385A318FF4092000DC352 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,17 +316,17 @@
 				408384BF18FF0457000DC352 /* MainWindow.xib */,
 				4083849F18FF015C000DC352 /* MainViewController.h */,
 				408384A018FF015C000DC352 /* MainViewController.m */,
-				4083858A18FF324E000DC352 /* MainViewController.xib */,
+				4083859F18FF3FE4000DC352 /* MainViewController.xib */,
 				4083858318FF2192000DC352 /* Configuration.plist */,
 				4083858418FF2192000DC352 /* Configuration.h */,
 				4083858518FF2192000DC352 /* Configuration.m */,
 				4083856518FF112E000DC352 /* Definitions.h */,
 				4083857818FF132C000DC352 /* RightViewController.h */,
 				4083857918FF132C000DC352 /* RightViewController.m */,
-				4083858C18FF3268000DC352 /* RightViewController.xib */,
+				408385A118FF404E000DC352 /* RightViewController.xib */,
 				4083857B18FF1340000DC352 /* LeftViewController.h */,
 				4083857C18FF1340000DC352 /* LeftViewController.m */,
-				4083858E18FF327B000DC352 /* LeftViewController.xib */,
+				408385A318FF4092000DC352 /* LeftViewController.xib */,
 				4083857E18FF152E000DC352 /* DefaultCell.h */,
 				4083857F18FF152E000DC352 /* DefaultCell.m */,
 				4083858018FF152E000DC352 /* DefaultCell.xib */,
@@ -345,7 +343,6 @@
 				4083849318FF015C000DC352 /* InfoPlist.strings */,
 				4083849618FF015C000DC352 /* main.m */,
 				4083849818FF015C000DC352 /* app-Prefix.pch */,
-				4083858818FF31AC000DC352 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -861,10 +858,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4083857018FF11F4000DC352 /* Montserrat-Bold.ttf in Resources */,
+				408385A418FF4092000DC352 /* LeftViewController.xib in Resources */,
 				4083857118FF11F4000DC352 /* Montserrat-Regular.ttf in Resources */,
 				4083855C18FF0A15000DC352 /* Notificare.plist in Resources */,
 				4083857318FF11F4000DC352 /* OleoScript.ttf in Resources */,
 				4083855D18FF0A15000DC352 /* NotificareResources.bundle in Resources */,
+				408385A218FF404E000DC352 /* RightViewController.xib in Resources */,
+				408385A018FF3FE4000DC352 /* MainViewController.xib in Resources */,
 				4083855A18FF0A15000DC352 /* .gitignore in Resources */,
 				4083858618FF2192000DC352 /* Configuration.plist in Resources */,
 				408384C018FF0457000DC352 /* MainWindow.xib in Resources */,
@@ -877,14 +877,10 @@
 				4083859618FF3563000DC352 /* LeftMenuIcon@2x.png in Resources */,
 				4083859718FF3563000DC352 /* RightMenuIcon.png in Resources */,
 				4083858218FF152E000DC352 /* DefaultCell.xib in Resources */,
-				4083858918FF31AC000DC352 /* Localizable.strings in Resources */,
 				408384A318FF015C000DC352 /* Images.xcassets in Resources */,
 				4083859818FF3563000DC352 /* RightMenuIcon@2x.png in Resources */,
-				4083858D18FF3268000DC352 /* RightViewController.xib in Resources */,
 				4083859C18FF3778000DC352 /* Logo@2x.png in Resources */,
-				4083858B18FF324E000DC352 /* MainViewController.xib in Resources */,
 				4083849518FF015C000DC352 /* InfoPlist.strings in Resources */,
-				4083858F18FF327B000DC352 /* LeftViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
