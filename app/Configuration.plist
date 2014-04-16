@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>testflight</key>
-	<string></string>
+	<string>e752dcc2-a57a-4374-9a6e-37d795250926</string>
 	<key>url</key>
-	<string></string>
+	<string>http://www.blauw.com</string>
 	<key>host</key>
-	<string></string>
+	<string>api.blauw.com</string>
 </dict>
 </plist>

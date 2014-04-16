@@ -38,15 +38,10 @@
     [[NotificarePushLib shared] setDelegate:self];
     [self registerForAPNS];
     
-    //if([launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"]){
     [[NotificarePushLib shared] handleOptions:[launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"]];
-    //}
-    
-    
-    //if([launchOptions objectForKey:@"UIApplicationLaunchOptionsLocalNotificationKey"]){
+
     [[NotificarePushLib shared] handleOptions:[launchOptions objectForKey:@"UIApplicationLaunchOptionsLocalNotificationKey"]];
-    //}
-    
+
     IIViewDeckController* deckController = [self generateControllerStack];
     self.leftController = deckController.leftController;
     self.centerController = deckController.centerController;
@@ -231,7 +226,7 @@
 
 - (void)notificarePushLib:(NotificarePushLib *)library didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
 
-    
+    [self setBeacons:[NSMutableArray arrayWithArray:beacons]];
 }
 
 
