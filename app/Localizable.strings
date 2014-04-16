@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  app
+
+  Created by Joel Oliveira on 17/04/14.
+  Copyright (c) 2014 Notificare. All rights reserved.
+*/
+
+
+"title_webview_load_fail" = "Error";
+"message_webview_load_fail" = "There was a error while loading this screen";

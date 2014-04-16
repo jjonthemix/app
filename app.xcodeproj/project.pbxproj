@@ -72,6 +72,7 @@
 		408385A018FF3FE4000DC352 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4083859F18FF3FE4000DC352 /* MainViewController.xib */; };
 		408385A218FF404E000DC352 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408385A118FF404E000DC352 /* RightViewController.xib */; };
 		408385A418FF4092000DC352 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408385A318FF4092000DC352 /* LeftViewController.xib */; };
+		408385A818FF4487000DC352 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 408385A718FF4487000DC352 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,7 @@
 		4083859F18FF3FE4000DC352 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		408385A118FF404E000DC352 /* RightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightViewController.xib; sourceTree = "<group>"; };
 		408385A318FF4092000DC352 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
+		408385A718FF4487000DC352 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +345,7 @@
 				4083849318FF015C000DC352 /* InfoPlist.strings */,
 				4083849618FF015C000DC352 /* main.m */,
 				4083849818FF015C000DC352 /* app-Prefix.pch */,
+				408385A718FF4487000DC352 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				408385A018FF3FE4000DC352 /* MainViewController.xib in Resources */,
 				4083855A18FF0A15000DC352 /* .gitignore in Resources */,
 				4083858618FF2192000DC352 /* Configuration.plist in Resources */,
+				408385A818FF4487000DC352 /* Localizable.strings in Resources */,
 				408384C018FF0457000DC352 /* MainWindow.xib in Resources */,
 				4083856F18FF11F4000DC352 /* Lato-Regular.ttf in Resources */,
 				4083856E18FF11F4000DC352 /* Arvo.ttf in Resources */,
