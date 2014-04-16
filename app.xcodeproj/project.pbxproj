@@ -322,8 +322,6 @@
 				4083858318FF2192000DC352 /* Configuration.plist */,
 				4083858418FF2192000DC352 /* Configuration.h */,
 				4083858518FF2192000DC352 /* Configuration.m */,
-				408384A218FF015C000DC352 /* Images.xcassets */,
-				4083849118FF015C000DC352 /* Supporting Files */,
 				4083856518FF112E000DC352 /* Definitions.h */,
 				4083857818FF132C000DC352 /* RightViewController.h */,
 				4083857918FF132C000DC352 /* RightViewController.m */,
@@ -334,6 +332,8 @@
 				4083857E18FF152E000DC352 /* DefaultCell.h */,
 				4083857F18FF152E000DC352 /* DefaultCell.m */,
 				4083858018FF152E000DC352 /* DefaultCell.xib */,
+				408384A218FF015C000DC352 /* Images.xcassets */,
+				4083849118FF015C000DC352 /* Supporting Files */,
 			);
 			path = app;
 			sourceTree = "<group>";
