@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>testflight</key>
+	<string>e752dcc2-a57a-4374-9a6e-37d795250926</string>
+	<key>url</key>
+	<string>http://www.blauw.com</string>
+	<key>host</key>
+	<string>api.blauw.com</string>
+</dict>
+</plist>
