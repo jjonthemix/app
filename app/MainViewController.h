@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UIWebViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UIWebView * webView;
+@property (nonatomic, strong) UIActivityIndicatorView * activityIndicatorView;
 
 @end
