@@ -3,22 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>testflight</key>
-	<string>150aa9c9-b7d5-403c-8dd8-95df124c75ec</string>
+	<string></string>
 	<key>url</key>
-	<string>http://www.blauw.com</string>
+	<string>http://...</string>
 	<key>navigation</key>
 	<array>
 		<dict>
 			<key>label</key>
 			<string>menu_item_home</string>
 			<key>url</key>
-			<string>http://www.blauw.com</string>
+			<string>http://...</string>
 		</dict>
 		<dict>
 			<key>label</key>
 			<string>menu_item_about</string>
 			<key>url</key>
-			<string>http://www.blauw.com/nl/blauw/</string>
+			<string>http://...</string>
 		</dict>
 		<dict>
 			<key>label</key>
@@ -30,7 +30,7 @@
 			<key>label</key>
 			<string>menu_item_contact</string>
 			<key>url</key>
-			<string>http://www.blauw.com/nl/contact/</string>
+			<string>http://...</string>
 		</dict>
 		<dict>
 			<key>label</key>
@@ -40,6 +40,6 @@
 		</dict>
 	</array>
 	<key>host</key>
-	<string>api.blauw.com</string>
+	<string>api.domain.com</string>
 </dict>
 </plist>
