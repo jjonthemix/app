@@ -21,8 +21,13 @@
 #define MONTSERRAT_BOLD_FONT(s)     [UIFont fontWithName:@"Montserrat-Bold" size:s]
 
 #define DEFAULT_CELLHEIGHT  80
-#define MENU_HEADER_HEIGHT 60
-#define MENU_CELLHEIGHT 80
+#define MENU_HEADER_HEIGHT 64
+#define MENU_CELLHEIGHT 60
+#define BEACON_HEADER_HEIGHT 64
+#define BEACON_CELLHEIGHT 80
+#define EMPTY_BEACONS_CELLHEIGHT 480
+
+#define MAIN_COLOR [UIColor colorWithRed:74.0/255.0 green:134.0/255.0 blue:186.0/255.0 alpha:1.0]
 
 /**
  * LOC STRINGS

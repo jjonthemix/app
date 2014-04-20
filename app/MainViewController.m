@@ -17,34 +17,71 @@
 
 @implementation MainViewController
 
+
+- (AppDelegate *)appDelegate {
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    
-    NSURL *nsUrl=[NSURL URLWithString:[[Configuration shared] getProperty:@"url"]];
-    NSURLRequest *nsRequest=[NSURLRequest requestWithURL:nsUrl];
-    [[self webView] loadRequest:nsRequest];
-    
-    
     [[self navigationItem] setTitleView:[[UIImageView alloc] initWithImage: [UIImage imageNamed: @"Logo"]]];
-    
-    [self setTitle:@""];
-    
     [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftMenuIcon"] style:UIBarButtonItemStyleBordered target:[self viewDeckController] action:@selector(toggleLeftView)]];
-    
     [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"RightMenuIcon"] style:UIBarButtonItemStyleBordered target:[self viewDeckController] action:@selector(toggleRightView)]];
     
     
     [self setActivityIndicatorView:[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray]];
-    [[self view] addSubview:[self activityIndicatorView]];
+    
     
     [[self activityIndicatorView] setHidden:YES];
     [[self activityIndicatorView]  setCenter:CGPointMake( self.view.frame.size.width /2-5, self.view.frame.size.height /2-5)];
     [[self activityIndicatorView]  setContentMode:UIViewContentModeCenter];
-    [[self activityIndicatorView]  startAnimating];
+    
+    [self setLoadingView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)]];
+    [[self loadingView] setBackgroundColor:[UIColor whiteColor]];
+    [[self loadingView] addSubview:[self activityIndicatorView]];
+    [[self view] addSubview:[self loadingView]];
+    
+    [[self backButton] setImage:[UIImage imageNamed: @"BackButton"]];
+    [[self forwardButton] setImage:[UIImage imageNamed: @"ForwardButton"]];
+    [[self refreshButton] setImage:[UIImage imageNamed: @"RefreshButton"]];
+
+    [[self backButton] setEnabled:NO];
+    [[self forwardButton] setEnabled:NO];
+    [[self refreshButton] setEnabled:YES];
+    
+    [[self toolbar] setBackgroundColor:[UIColor whiteColor]];
+    [[self toolbar] setTintColor:[UIColor blackColor]];
+    [[self toolbar] setTranslucent:NO];
+    
+    
+    //For iOS6
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        [[[self navigationController] navigationBar] setTintColor:[UIColor whiteColor]];
+        
+        [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+        [[self toolbar] setTintColor:[UIColor blackColor]];
+
+        [[self backButton] setTintColor:[UIColor blackColor]];
+        [[self forwardButton] setTintColor:[UIColor blackColor]];
+        [[self refreshButton] setTintColor:[UIColor blackColor]];
+    }
+    
+    
+    [self goToUrl];
 }
 
+
+-(void)goToUrl{
+    NSURL *nsUrl=[NSURL URLWithString:[self targetUrl]];
+    NSURLRequest *nsRequest=[NSURLRequest requestWithURL:nsUrl];
+    [[self webView] loadRequest:nsRequest];
+    
+    [self setTitle:LSSTRING([self viewTitle])];
+
+    [[self activityIndicatorView]  startAnimating];
+}
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
     
@@ -53,13 +90,52 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
-    [[self activityIndicatorView] setHidden:YES];
     
+    [self performSelector:@selector(animateDidLoad) withObject:nil afterDelay:2.0];
+    
+    [[self webView] stringByEvaluatingJavaScriptFromString:@"window.scrollTo(0.0, 110.0)"];
+
+}
+
+-(void)animateDidLoad{
+    [UIView animateWithDuration:1.f delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [[self loadingView] setAlpha:0.f];
+    } completion:^(BOOL finished) {
+        
+        [[self activityIndicatorView] setHidden:YES];
+        
+        if([[self webView] canGoBack]){
+            [[self backButton] setEnabled:YES];
+        } else {
+            [[self backButton] setEnabled:NO];
+        }
+        
+        if([[self webView] canGoForward]){
+            [[self forwardButton] setEnabled:YES];
+        } else {
+            [[self forwardButton] setEnabled:NO];
+        }
+        
+    }];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [[self activityIndicatorView] setHidden:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    ALERT_DIALOG(LSSTRING(@"title_webview_load_fail"), LSSTRING(@"message_webview_load_fail"));
+    
+    [[self activityIndicatorView] setHidden:YES];
+    
+    if([error code] != NSURLErrorCancelled){
+        ALERT_DIALOG(LSSTRING(@"title_webview_load_fail"), LSSTRING(@"message_webview_load_fail"));
+    }
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

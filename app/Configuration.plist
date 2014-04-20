@@ -3,9 +3,42 @@
 <plist version="1.0">
 <dict>
 	<key>testflight</key>
-	<string>e752dcc2-a57a-4374-9a6e-37d795250926</string>
+	<string>150aa9c9-b7d5-403c-8dd8-95df124c75ec</string>
 	<key>url</key>
 	<string>http://www.blauw.com</string>
+	<key>navigation</key>
+	<array>
+		<dict>
+			<key>label</key>
+			<string>menu_item_home</string>
+			<key>url</key>
+			<string>http://www.blauw.com</string>
+		</dict>
+		<dict>
+			<key>label</key>
+			<string>menu_item_about</string>
+			<key>url</key>
+			<string>http://www.blauw.com/nl/blauw/</string>
+		</dict>
+		<dict>
+			<key>label</key>
+			<string>menu_item_location</string>
+			<key>url</key>
+			<string>MKMapView:lat,long</string>
+		</dict>
+		<dict>
+			<key>label</key>
+			<string>menu_item_contact</string>
+			<key>url</key>
+			<string>http://www.blauw.com/nl/contact/</string>
+		</dict>
+		<dict>
+			<key>label</key>
+			<string>menu_item_settings</string>
+			<key>url</key>
+			<string>IBAction:openPreferences</string>
+		</dict>
+	</array>
 	<key>host</key>
 	<string>api.blauw.com</string>
 </dict>

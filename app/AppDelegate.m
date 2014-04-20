@@ -11,6 +11,7 @@
 #import "MainViewController.h"
 #import "RightViewController.h"
 #import "LeftViewController.h"
+#import "LocationViewController.h"
 #import "NSData+Hex.h"
 #import "TestFlight.h"
 #import "Configuration.h"
@@ -29,10 +30,15 @@
 //    
 //    [UIImageView setDefaultEngine:[self apiEngine]];
     
+    //[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor colorWithRed:74.0/255.0 green:134.0/255.0 blue:186.0/255.0 alpha:1.0]];
+    
+
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"Blue"] forBarMetrics:UIBarMetricsDefault];
+
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor blackColor]];
     
-    
     [self setBeacons:[NSMutableArray array]];
+    [self setRegions:[NSMutableArray array]];
     
     [[NotificarePushLib shared] launch];
     [[NotificarePushLib shared] setDelegate:self];
@@ -54,20 +60,66 @@
 
 - (IIViewDeckController*)generateControllerStack {
     
-    LeftViewController * leftController = [[LeftViewController alloc] initWithNibName:@"LeftViewController" bundle:nil];
-    
-
-        RightViewController * rightController = [[RightViewController alloc] initWithNibName:@"RightViewController" bundle:nil];
-        
-        UIViewController * centerController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-        centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
-        IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centerController
-                                                                                        leftViewController:leftController
-                                                                                       rightViewController:rightController];
+    [self setLeftController:[[LeftViewController alloc] initWithNibName:@"LeftViewController" bundle:nil]];
+    [self setRightController:[[RightViewController alloc] initWithNibName:@"RightViewController" bundle:nil]];
+    MainViewController * controller = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    [controller setViewTitle:LSSTRING(@"menu_item_home")];
+    [controller setTargetUrl:[[Configuration shared] getProperty:@"url"]];
+    [self setCenterController:[[UINavigationController alloc] initWithRootViewController:controller]];
+    [self setDeckController:[[IIViewDeckController alloc] initWithCenterViewController:[self centerController]
+                                                                    leftViewController:[self leftController]
+                                                                   rightViewController:[self rightController]]];
         //deckController.rightSize = 100;
         
-        [deckController disablePanOverViewsOfClass:NSClassFromString(@"_UITableViewHeaderFooterContentView")];
-        return deckController;
+        [[self deckController] disablePanOverViewsOfClass:NSClassFromString(@"_UITableViewHeaderFooterContentView")];
+        return [self deckController];
+
+}
+
+
+-(void)handleNavigation:(NSDictionary *)item{
+    
+    
+    [[self deckController] toggleLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
+        
+        
+        if ([[item objectForKey:@"url"] hasPrefix:@"http://"] || [[item objectForKey:@"url"] hasPrefix:@"https://"]) {
+            
+            MainViewController * main = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+            
+            [main setViewTitle:LSSTRING([item objectForKey:@"label"])];
+            [main setTargetUrl:[item objectForKey:@"url"]];
+            [self setCenterController:[[UINavigationController alloc] initWithRootViewController:main]];
+            
+            [[self deckController] setCenterController:[self centerController]];
+            
+        } else {
+            //Check which Native view to use
+            
+            if ([[item objectForKey:@"url"] hasPrefix:@"IBAction:"]){
+                //Call a method in delegate (used for the settings)
+
+                NSString * method = [[item objectForKey:@"url"] stringByReplacingOccurrencesOfString:@"IBAction:" withString:@""];
+                SEL mySelector = NSSelectorFromString(method);
+                if([self respondsToSelector:mySelector]){
+                    Suppressor([self performSelector:mySelector]);
+                }
+  
+            } else if ([[item objectForKey:@"url"] hasPrefix:@"MKMapView:"]){
+                
+                
+                LocationViewController * map = [[LocationViewController alloc] initWithNibName:@"LocationViewController" bundle:nil];
+
+                [self setCenterController:[[UINavigationController alloc] initWithRootViewController:map]];
+                [[self deckController] setCenterController:[self centerController]];
+                
+            }
+            
+        }
+        
+        
+    }];
+    
 
 }
 
@@ -75,6 +127,13 @@
 -(void)registerForAPNS{
     [[NotificarePushLib shared] registerForRemoteNotificationsTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 }
+
+
+-(void)openPreferences{
+    [[NotificarePushLib shared] openUserPreferences];
+}
+
+
 
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -86,7 +145,7 @@
             [[NotificarePushLib shared] startLocationUpdates];
             [defaults setObject:[deviceToken hexadecimalString] forKey:@"deviceToken"];
             [defaults synchronize];
-            
+            [self addTags];
         } errorHandler:^(NSError *error) {
             //
         }];
@@ -96,12 +155,21 @@
             [[NotificarePushLib shared] startLocationUpdates];
             [defaults setObject:[deviceToken hexadecimalString] forKey:@"deviceToken"];
             [defaults synchronize];
-            
+            [self addTags];
         } errorHandler:^(NSError *error) {
             //
         }];
     }
     
+}
+
+
+-(void)addTags{
+    [[NotificarePushLib shared] addTags:@[@"tag_press",@"tag_events",@"tag_newsletter"] completionHandler:^(NSDictionary *info) {
+        //
+    } errorHandler:^(NSError *error) {
+        //
+    }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
@@ -189,7 +257,7 @@
 // You can request a state of a region by doing [[[NotificarePushLib shared] locationManager] requestStateForRegion:(CLRegion *) region];
 
 - (void)notificarePushLib:(NotificarePushLib *)library didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
-    //NSLog(@"didDetermineState: %i %@", state, region);
+   // NSLog(@"didDetermineState: %i %@", state, region);
     
 }
 
@@ -210,6 +278,16 @@
 
 - (void)notificarePushLib:(NotificarePushLib *)library didStartMonitoringForRegion:(CLRegion *)region{
     NSLog(@"didStartMonitoringForRegion: %@", region);
+    
+    if(![region isKindOfClass:[CLBeaconRegion class]]){
+        
+        [[self regions] removeAllObjects];
+        
+        for (NSDictionary * fence in [[NotificarePushLib shared] geofences]) {
+            [[self regions] addObject:fence];
+        }
+        
+    }
 }
 
 
@@ -227,6 +305,7 @@
 - (void)notificarePushLib:(NotificarePushLib *)library didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
 
     [self setBeacons:[NSMutableArray arrayWithArray:beacons]];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"gotBeacons" object:nil];
 }
 
 

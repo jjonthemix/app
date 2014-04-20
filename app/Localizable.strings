@@ -6,6 +6,15 @@
   Copyright (c) 2014 Notificare. All rights reserved.
 */
 
-
+"title_welcome" = "Welcome to";
 "title_webview_load_fail" = "Error";
-"message_webview_load_fail" = "There was a error while loading this screen";
+"message_webview_load_fail" = "There was an error while loading this page. Please try again.";
+"title_list_beacons" = "FACILITIES";
+"empty_beacons_text" = "This feature is only available if you are inside one of our offices. This feature also requires that you turn Bluetooth on in order to work.";
+"no_support_beacons_text" = "This feature requires an iPhone 4S/5/5S with iOS7 installed.";
+"menu_item_home" = "HOME";
+"menu_item_about" = "ABOUT";
+"menu_item_location" = "LOCATIONS";
+"menu_item_contact" = "CONTACT";
+"menu_item_settings" = "SETTINGS";
+

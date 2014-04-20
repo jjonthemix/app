@@ -11,7 +11,9 @@
 @interface RightViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) IBOutlet UITableView * tableView;
+@property (nonatomic, strong) IBOutlet UITableViewController * tableViewController;
 @property (nonatomic, strong) NSMutableArray * navSections;
 @property (nonatomic, strong) NSMutableArray * sectionTitles;
+@property (nonatomic, strong) NSTimer * timer;
 
 @end
