@@ -164,9 +164,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //    if([[[[self theItems] objectAtIndex:indexPath.row] objectForKey:@"icon"] isEqualToString:@"signout"]){
-    //        CONFIRM_DIALOG(LSSTRING(@"warning_title"), LSSTRING(@"warning_confirm_signout"));
-    //    }
+    NSDictionary * item = (NSDictionary *)[[[self navSections] objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
+    
+    
+    [[self appDelegate] openBeacon:[[item objectForKey:@"info"] objectForKey:@"notification"]];
     
 }
 

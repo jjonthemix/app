@@ -36,5 +36,6 @@
 
 
 -(void)handleNavigation:(NSDictionary *)item;
+-(void)openBeacon:(NSDictionary *)info;
 
 @end

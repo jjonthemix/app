@@ -134,6 +134,9 @@
 }
 
 
+-(void)openBeacon:(NSDictionary *)info{
+    [[NotificarePushLib shared] openBeacon:info];
+}
 
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
