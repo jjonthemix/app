@@ -164,10 +164,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary * item = (NSDictionary *)[[[self navSections] objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
-    
-    
-    [[self appDelegate] openBeacon:[[item objectForKey:@"info"] objectForKey:@"notification"]];
+    if([[self navSections] count] > 0){
+        
+        NSDictionary * item = (NSDictionary *)[[[self navSections] objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
+        
+        if([[item objectForKey:@"info"] objectForKey:@"notification"]){
+            [[self appDelegate] openBeacon:[[item objectForKey:@"info"] objectForKey:@"notification"]];
+        }
+        
+    }
     
 }
 
