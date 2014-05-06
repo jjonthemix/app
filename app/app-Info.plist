@@ -35,11 +35,6 @@
 		<string>Museo.otf</string>
 		<string>OleoScript.ttf</string>
 	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-		<string>remote-notification</string>
-	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
