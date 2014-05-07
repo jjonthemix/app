@@ -21,7 +21,7 @@
 		<key>IMAGES_SHARING</key>
 		<true/>
 		<key>BACKGROUND_COLOR</key>
-		<string>FF0000</string>
+		<string>000000</string>
 		<key>TITLE_COLOR</key>
 		<string>0x000000</string>
 		<key>BUTTONS_TEXT_COLOR</key>
