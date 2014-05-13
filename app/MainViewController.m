@@ -26,8 +26,16 @@
 {
     [super viewDidLoad];
     [[self navigationItem] setTitleView:[[UIImageView alloc] initWithImage: [UIImage imageNamed: @"Logo"]]];
-    [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftMenuIcon"] style:UIBarButtonItemStyleBordered target:[self viewDeckController] action:@selector(toggleLeftView)]];
-    [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"RightMenuIcon"] style:UIBarButtonItemStyleBordered target:[self viewDeckController] action:@selector(toggleRightView)]];
+    
+    UIBarButtonItem * leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftMenuIcon"] style:UIBarButtonItemStylePlain target:[self viewDeckController] action:@selector(toggleLeftView)];
+    
+    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"RightMenuIcon"] style:UIBarButtonItemStylePlain target:[self viewDeckController] action:@selector(toggleRightView)];
+    
+    [leftButton setTintColor:[UIColor whiteColor]];
+    [rightButton setTintColor:[UIColor whiteColor]];
+    
+    [[self navigationItem] setLeftBarButtonItem:leftButton];
+    [[self navigationItem] setRightBarButtonItem:rightButton];
     
     
     [self setActivityIndicatorView:[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray]];
@@ -45,7 +53,7 @@
     [[self backButton] setImage:[UIImage imageNamed: @"BackButton"]];
     [[self forwardButton] setImage:[UIImage imageNamed: @"ForwardButton"]];
     [[self refreshButton] setImage:[UIImage imageNamed: @"RefreshButton"]];
-
+    
     [[self backButton] setEnabled:NO];
     [[self forwardButton] setEnabled:NO];
     [[self refreshButton] setEnabled:YES];
@@ -57,17 +65,21 @@
     
     //For iOS6
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        [[[self navigationController] navigationBar] setTintColor:[UIColor whiteColor]];
+        [[[self navigationController] navigationBar] setTintColor:MAIN_COLOR];
         
-        [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-
-        [[self toolbar] setTintColor:[UIColor blackColor]];
-
+        [[self toolbar] setTintColor:MAIN_COLOR];
+        
         [[self backButton] setTintColor:[UIColor blackColor]];
         [[self forwardButton] setTintColor:[UIColor blackColor]];
         [[self refreshButton] setTintColor:[UIColor blackColor]];
+        
+        [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+        
+    } else {
+        
+        [[[self navigationController] navigationBar] setBarTintColor:MAIN_COLOR];
     }
-    
     
     [self goToUrl];
 }

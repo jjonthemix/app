@@ -42,28 +42,38 @@
     // Do any additional setup after loading the view from its nib.
     
     [[self navigationItem] setTitleView:[[UIImageView alloc] initWithImage: [UIImage imageNamed: @"Logo"]]];
-    [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftMenuIcon"] style:UIBarButtonItemStyleBordered target:[self viewDeckController] action:@selector(toggleLeftView)]];
-    [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"RightMenuIcon"] style:UIBarButtonItemStyleBordered target:[self viewDeckController] action:@selector(toggleRightView)]];
+    
+    UIBarButtonItem * leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LeftMenuIcon"] style:UIBarButtonItemStylePlain target:[self viewDeckController] action:@selector(toggleLeftView)];
+    
+    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"RightMenuIcon"] style:UIBarButtonItemStylePlain target:[self viewDeckController] action:@selector(toggleRightView)];
+    
+    [leftButton setTintColor:[UIColor whiteColor]];
+    [rightButton setTintColor:[UIColor whiteColor]];
+    
+    [[self navigationItem] setLeftBarButtonItem:leftButton];
+    [[self navigationItem] setRightBarButtonItem:rightButton];
+    
+    //
+    
     
     [[self mapView] setDelegate:self];
     [[self mapView] setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     [[self mapView] setShowsUserLocation:YES];
-    
-    NSString * version = [[UIDevice currentDevice] systemVersion];
-    
-    if([version floatValue] >= 7.0f) {//for iOS7
-        [[self mapView] setShowsPointsOfInterest:YES];
-        [[self mapView] setShowsBuildings:NO];
-    }
-
     [[self mapView] setMapType:MKMapTypeStandard];
-
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_0) {
-        [[[self navigationController] navigationBar] setTintColor:[UIColor whiteColor]];
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        
+        [[[self navigationController] navigationBar] setTintColor:MAIN_COLOR];
         
         [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
         
+    } else {
+        
+        [[self mapView] setShowsPointsOfInterest:YES];
+        [[self mapView] setShowsBuildings:NO];
+        
+        [[[self navigationController] navigationBar] setBarTintColor:MAIN_COLOR];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(populateMap) name:@"gotRegions" object:nil];

@@ -27,7 +27,7 @@
 #define BEACON_CELLHEIGHT 80
 #define EMPTY_BEACONS_CELLHEIGHT 480
 
-#define MAIN_COLOR [UIColor colorWithRed:74.0/255.0 green:134.0/255.0 blue:186.0/255.0 alpha:1.0]
+#define MAIN_COLOR [UIColor colorWithRed:61.0/255.0 green:59.0/255 blue:56.0/255.0 alpha:1.0]
 
 /**
  * LOC STRINGS

@@ -30,12 +30,6 @@
 //    
 //    [UIImageView setDefaultEngine:[self apiEngine]];
     
-    //[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor colorWithRed:74.0/255.0 green:134.0/255.0 blue:186.0/255.0 alpha:1.0]];
-    
-
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"Blue"] forBarMetrics:UIBarMetricsDefault];
-
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor blackColor]];
     
     [self setBeacons:[NSMutableArray array]];
     [self setRegions:[NSMutableArray array]];
