@@ -181,6 +181,33 @@
 }
 
 
+/*
+ 
+ If you implement this delegate please add a remote-notification to your UIBackgroundModes in app's plist
+ 
+ - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+ 
+ 
+ [[NotificarePushLib shared] getNotification:[userInfo objectForKey:@"id"] completionHandler:^(NSDictionary *info) {
+ //
+ 
+ //At this point the notification can be safely open with the contents of info
+ //You can then use this to update UI or call directly openNotification
+ //You have about 30 seconds to do what you need to do
+ [[self cachedNotifications] addObject:info];
+ completionHandler(UIBackgroundFetchResultNewData);
+ 
+ 
+ } errorHandler:^(NSError *error) {
+ //
+ completionHandler(UIBackgroundFetchResultFailed);
+ }];
+ 
+ 
+ }
+ */
+
+
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     
     [[NotificarePushLib shared] openNotification:@{@"id":[[notification userInfo] objectForKey:@"notification"]}];
