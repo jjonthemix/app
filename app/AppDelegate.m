@@ -226,10 +226,12 @@
 
 - (void)notificarePushLib:(NotificarePushLib *)library didCloseNotification:(Notification *)notification{
     NSLog(@"didCloseNotification%@",notification);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closedNotification" object:nil];
 }
 
 - (void)notificarePushLib:(NotificarePushLib *)library didFailToOpenNotification:(Notification *)notification{
     NSLog(@"didFailToOpenNotification%@",notification);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closedNotification" object:nil];
 }
 
 
@@ -239,6 +241,7 @@
 
 - (void)notificarePushLib:(NotificarePushLib *)library didExecuteAction:(NSDictionary *)info{
     NSLog(@"%@",info);
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"closedNotification" object:nil];
 }
 
 -(void)notificarePushLib:(NotificarePushLib *)library shouldPerformSelector:(NSString *)selector{
@@ -250,10 +253,12 @@
 
 - (void)notificarePushLib:(NotificarePushLib *)library didNotExecuteAction:(NSDictionary *)info{
     NSLog(@"%@",info);
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"closedNotification" object:nil];
 }
 
 - (void)notificarePushLib:(NotificarePushLib *)library didFailToExecuteAction:(NSError *)error{
     NSLog(@"%@",error);
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"closedNotification" object:nil];
 }
 
 - (void)notificarePushLib:(NotificarePushLib *)library didReceiveLocationServiceAuthorizationStatus:(NSDictionary *)status{
@@ -297,7 +302,9 @@
 - (void)notificarePushLib:(NotificarePushLib *)library didExitRegion:(CLRegion *)region{
     
     NSLog(@"didExitRegion: %@", region);
-    
+    if(![region isKindOfClass:[CLBeaconRegion class]]){
+        [[self beacons] removeAllObjects];
+    }
 }
 
 - (void)notificarePushLib:(NotificarePushLib *)library didStartMonitoringForRegion:(CLRegion *)region{

@@ -119,7 +119,7 @@
             
         }
         
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        //[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
         
     }
@@ -170,6 +170,7 @@
         
         if([[item objectForKey:@"info"] objectForKey:@"notification"]){
             [[self appDelegate] openBeacon:[[item objectForKey:@"info"] objectForKey:@"notification"]];
+            [self showLoadingScreen];
         }
         
     }
@@ -198,7 +199,7 @@
 
     [[self tableView] reloadData];
     
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadBeacons) name:@"gotBeacons" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLoadingScreen) name:@"closedNotification" object:nil];
 }
 
 -(void)reloadBeacons {
@@ -207,6 +208,14 @@
         [[self navSections] addObject:[[self appDelegate] beacons]];
         [[self tableView] reloadData];
     }
+}
+
+-(void)showLoadingScreen {
+    [[self view] addSubview:[self loadingScreen]];
+}
+
+-(void)hideLoadingScreen {
+    [[self loadingScreen] removeFromSuperview];
 }
 
 - (NSTimer*)createTimer {
