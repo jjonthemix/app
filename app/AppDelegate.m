@@ -129,7 +129,9 @@
 
 
 -(void)openBeacon:(NSDictionary *)info{
-    [[NotificarePushLib shared] openBeacon:info];
+    NSMutableDictionary * notification = [NSMutableDictionary  dictionary];
+    [notification setObject:info forKey:@"notification"];
+    [[NotificarePushLib shared] openBeacon:notification];
 }
 
 
