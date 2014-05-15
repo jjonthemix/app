@@ -207,6 +207,9 @@
         [[self navSections] removeAllObjects];
         [[self navSections] addObject:[[self appDelegate] beacons]];
         [[self tableView] reloadData];
+    } else {
+        [[self navSections] removeAllObjects];
+        [[self tableView] reloadData];
     }
 }
 
