@@ -304,7 +304,7 @@
 - (void)notificarePushLib:(NotificarePushLib *)library didExitRegion:(CLRegion *)region{
     
     NSLog(@"didExitRegion: %@", region);
-    if(![region isKindOfClass:[CLBeaconRegion class]]){
+    if([region isKindOfClass:[CLBeaconRegion class]]){
         [[self beacons] removeAllObjects];
     }
 }
