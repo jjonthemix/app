@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>myamazingapp</string>
+	<string>YOUR_BUNDLE_DISPLAY_NAME</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>re.notifica.test</string>
+	<string>YOUR_BUNDLE_IDENTIFIER</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -20,10 +20,23 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>YOUR_BUNDLE_IDENTIFIER</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ncXXX</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationUsageDescription</key>
+	<string>We would like to use your location to easily provide you maps, directions, updates and alerts based on your location.</string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>UIAppFonts</key>
@@ -35,24 +48,11 @@
 		<string>Museo.otf</string>
 		<string>OleoScript.ttf</string>
 	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-	</array>
-	<key>NSLocationUsageDescription</key>
-	<string>We would like to use your location to easily provide you maps, directions, updates and alerts based on your location.</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>re.notifica.test</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>ncXXXXXXXXXXX</string>
-			</array>
-		</dict>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
