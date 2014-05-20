@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>YOUR_APP_DISPLAY_NAME</string>
+	<string>myamazingapp</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>YOUR_BUNDLE_IDENTIFIER</string>
+	<string>re.notifica.test</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -43,6 +43,17 @@
 	<string>We would like to use your location to easily provide you maps, directions, updates and alerts based on your location.</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>re.notifica.test</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ncXXXXXXXXXXX</string>
+			</array>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -16,11 +16,18 @@
 @class IIViewDeckController;
 @class MainViewController;
 @class LocationViewController;
+@class SignInViewController;
+@class UserDetailsViewController;
+@class ResetPassViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, NotificarePushLibDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 @property (strong, nonatomic) IBOutlet UINavigationController *navController;
+
+@property (strong, nonatomic) NotificarePushLib * notificarePushLib;
+
+@property (strong, nonatomic) NSMutableArray * cachedNotifications;
 
 @property (strong, nonatomic) NSMutableArray * regions;
 @property (strong, nonatomic) NSMutableArray * beacons;

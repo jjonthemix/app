@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "DefaultCell.h"
 #import "Configuration.h"
+#import "NotificarePushLib.h"
+#import "IIViewDeckController.h"
 
 
 @interface LeftViewController ()
@@ -23,6 +25,11 @@
 - (AppDelegate *)appDelegate {
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
+
+- (NotificarePushLib *)notificare {
+    return (NotificarePushLib *)[[self appDelegate] notificarePushLib];
+}
+
 
 
 #pragma mark - Table delegates
@@ -120,27 +127,49 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-    [self setNavSections:[NSMutableArray array]];
-    [self setSectionTitles:[NSMutableArray array]];
-
-    [[self sectionTitles] addObject:[NSString stringWithFormat:@"%@ %@", LSSTRING(@"title_welcome"), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]]];
+    [self reloadData];
     
-    NSMutableArray * menuItems = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"changedAccount" object:nil];
     
-    NSArray * items = [[Configuration shared] getArray:@"navigation"];
-
-    for (NSDictionary * item in items) {
-
-        [menuItems addObject:item];
-    }
-
-    [[self navSections] addObject:menuItems];
-    [[self tableView] reloadData];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+
+}
+
+-(void)reloadData{
+    [self setNavSections:[NSMutableArray array]];
+    [self setSectionTitles:[NSMutableArray array]];
+    
+    [[self sectionTitles] addObject:[NSString stringWithFormat:@"%@ %@", LSSTRING(@"title_welcome"), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]]];
+    
+    NSMutableArray * menuItems = [NSMutableArray array];
+    
+    NSArray * items = [[Configuration shared] getArray:@"navigation"];
+    
+    for (NSDictionary * item in items) {
+        
+        if([[item objectForKey:@"url"] isEqualToString:@"Auth:"]){
+            
+            if ( [[self notificare] isSignedIn] ) {
+                //
+                NSMutableDictionary * theItem = [NSMutableDictionary dictionaryWithDictionary:item];
+                [theItem setValue:LSSTRING(@"menu_item_user") forKey:@"label"];
+                [menuItems addObject:theItem];
+            } else {
+                [menuItems addObject:item];
+            }
+            
+        } else {
+            [menuItems addObject:item];
+        }
+        
+    }
+    
+    [[self navSections] addObject:menuItems];
+    [[self tableView] reloadData];
 }
 
 

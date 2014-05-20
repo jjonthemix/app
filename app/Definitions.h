@@ -29,6 +29,29 @@
 
 #define MAIN_COLOR [UIColor colorWithRed:61.0/255.0 green:59.0/255 blue:56.0/255.0 alpha:1.0]
 
+#define FIELD_BACKGROUND_COLOR [UIColor whiteColor]
+#define FIELD_TEXT_COLOR [UIColor blackColor]
+#define FIELD_BORDER_COLOR [UIColor colorWithRed:61.0/255.0 green:59.0/255 blue:56.0/255.0 alpha:1.0]
+#define FIELD_BORDER_WIDTH 2.0f
+#define FIELD_CORNER_RADIUS 5.0f
+#define FIELD_TEXT [UIFont fontWithName:@"Lato-Regular" size:16]
+
+#define BUTTON_TEXT [UIFont fontWithName:@"Lato-Regular" size:16]
+#define BUTTON_TEXT_COLOR [UIColor whiteColor]
+#define BUTTON_BACKGROUND_COLOR [UIColor colorWithRed:61.0/255.0 green:59.0/255 blue:56.0/255.0 alpha:1.0]
+#define BUTTON_BORDER_COLOR [UIColor colorWithRed:61.0/255.0 green:59.0/255 blue:56.0/255.0 alpha:1.0]
+#define BUTTON_BORDER_WIDTH 2.0f
+#define BUTTON_CORNER_RADIUS 5.0f
+
+
+
+#define LABEL_TEXT [UIFont fontWithName:@"Lato-Regular" size:12]
+#define LABEL_TEXT_COLOR [UIColor colorWithRed:61.0/255.0 green:59.0/255 blue:56.0/255.0 alpha:1.0]
+#define LABEL_BACKGROUND_COLOR [UIColor clearColor]
+#define LABEL_BORDER_COLOR [UIColor clearColor]
+#define LABEL_BORDER_WIDTH 1.0f
+#define LABEL_CORNER_RADIUS 5.0f
+
 /**
  * LOC STRINGS
  */
@@ -41,6 +64,13 @@
 do\
 {\
 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:(__title__) message:(__message__) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];\
+[alert show];\
+} while ( 0 )
+
+#define APP_ALERT_DIALOG(__message__) \
+do\
+{\
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"] message:(__message__) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];\
 [alert show];\
 } while ( 0 )
 
