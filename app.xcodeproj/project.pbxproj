@@ -1292,7 +1292,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/app/Libs/TestFlightSDK3.0.0",
-					"$(PROJECT_DIR)/app/Libs/notificare-push-lib-1.0-RC19",
 					"$(PROJECT_DIR)/app/Libs/notificare-push-lib-1.0-RC21",
 				);
 				OTHER_LDFLAGS = (
@@ -1319,7 +1318,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/app/Libs/TestFlightSDK3.0.0",
-					"$(PROJECT_DIR)/app/Libs/notificare-push-lib-1.0-RC19",
 					"$(PROJECT_DIR)/app/Libs/notificare-push-lib-1.0-RC21",
 				);
 				OTHER_LDFLAGS = (
@@ -1420,7 +1418,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/app/Libs/TestFlightSDK3.0.0",
-					"$(PROJECT_DIR)/app/Libs/notificare-push-lib-1.0-RC19",
 					"$(PROJECT_DIR)/app/Libs/notificare-push-lib-1.0-RC21",
 				);
 				OTHER_LDFLAGS = (
