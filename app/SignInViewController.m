@@ -125,9 +125,20 @@
         } errorHandler:^(NSError *error) {
             //
             [[self signinButton] setEnabled:NO];
-            NSLog(@"error on login: %@", error);
-             APP_ALERT_DIALOG(LSSTRING(@"error_signin"));
-           // [[self infoLabel] setText:LSSTRING(@"error_signin")];
+
+            switch ([error code]) {
+                case kNotificareErrorCodeBadRequest:
+                    APP_ALERT_DIALOG(LSSTRING(@"error_signin_invalid_email"));
+                    break;
+                    
+                case kNotificareErrorCodeForbidden:
+                    APP_ALERT_DIALOG(LSSTRING(@"error_signin_invalid_password"));
+                    break;
+                    
+                default:
+                    APP_ALERT_DIALOG(LSSTRING(@"error_signin"));
+                    break;
+            }
         }];
     }
     
