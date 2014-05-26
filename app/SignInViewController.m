@@ -116,7 +116,7 @@
             } errorHandler:^(NSError *error) {
                 //
                 NSLog(@"error on fetch details: %@", error);
-                [[self signinButton] setEnabled:NO];
+                [[self signinButton] setEnabled:YES];
                  APP_ALERT_DIALOG(LSSTRING(@"error_signin"));
                // [[self infoLabel] setText:LSSTRING(@"error_signin")];
             }];
@@ -124,7 +124,7 @@
             
         } errorHandler:^(NSError *error) {
             //
-            [[self signinButton] setEnabled:NO];
+            [[self signinButton] setEnabled:YES];
 
             switch ([error code]) {
                 case kNotificareErrorCodeBadRequest:
