@@ -153,7 +153,7 @@
         
         if([[item objectForKey:@"url"] isEqualToString:@"Auth:"]){
             
-            if ( [[self notificare] isSignedIn] ) {
+            if ( [[self notificare] isLoggedIn] ) {
                 //
                 NSMutableDictionary * theItem = [NSMutableDictionary dictionaryWithDictionary:item];
                 [theItem setValue:LSSTRING(@"menu_item_user") forKey:@"label"];

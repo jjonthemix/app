@@ -109,7 +109,7 @@
                 //Call a method in delegate (used for the settings)
                 
 
-                if([[NotificarePushLib shared] isSignedIn]){
+                if([[NotificarePushLib shared] isLoggedIn]){
                     
                     UserDetailsViewController * userDetails = [[UserDetailsViewController alloc] initWithNibName:@"UserDetailsViewController" bundle:nil];
                     [self setCenterController:[[UINavigationController alloc] initWithRootViewController:userDetails]];
