@@ -19,6 +19,7 @@
 #define OLEO_FONT(s)     [UIFont fontWithName:@"OleoScript" size:s]
 #define MONTSERRAT_FONT(s)     [UIFont fontWithName:@"Montserrat-Regular" size:s]
 #define MONTSERRAT_BOLD_FONT(s)     [UIFont fontWithName:@"Montserrat-Bold" size:s]
+#define DEFAULT_SYSTEM_FONT(s)     [UIFont systemFontOfSize:s]
 
 #define DEFAULT_CELLHEIGHT  80
 #define MENU_HEADER_HEIGHT 64
@@ -27,7 +28,7 @@
 #define BEACON_CELLHEIGHT 80
 #define EMPTY_BEACONS_CELLHEIGHT 480
 
-#define MAIN_COLOR [UIColor colorWithRed:61.0/255.0 green:59.0/255 blue:56.0/255.0 alpha:1.0]
+#define MAIN_COLOR [UIColor colorWithRed:255.0/255.0 green:255.0/255 blue:255.0/255.0 alpha:1.0]
 
 #define FIELD_BACKGROUND_COLOR [UIColor whiteColor]
 #define FIELD_TEXT_COLOR [UIColor blackColor]
@@ -51,6 +52,14 @@
 #define LABEL_BORDER_COLOR [UIColor clearColor]
 #define LABEL_BORDER_WIDTH 1.0f
 #define LABEL_CORNER_RADIUS 5.0f
+
+
+#define BADGE_TEXT [UIFont fontWithName:@"Lato-Regular" size:10]
+#define BADGE_TEXT_COLOR [UIColor whiteColor]
+#define BADGE_BACKGROUND_COLOR [UIColor colorWithRed:165.0/255.0 green:71.0/255 blue:71.0/255.0 alpha:1.0]
+#define BADGE_BORDER_COLOR [UIColor whiteColor]
+#define BADGE_BORDER_WIDTH 0.0f
+#define BADGE_CORNER_RADIUS 10.0f
 
 /**
  * LOC STRINGS

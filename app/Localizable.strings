@@ -6,45 +6,47 @@
   Copyright (c) 2014 Notificare. All rights reserved.
 */
 
-"title_welcome" = "Welcome to";
+"title_welcome" = "";
 "title_webview_load_fail" = "Error";
 "message_webview_load_fail" = "There was an error while loading this page. Please try again.";
-"title_list_beacons" = "FACILITIES";
-"empty_beacons_text" = "This feature is only available if you are inside one of our offices. This feature also requires that you turn Bluetooth on in order to work.";
-"no_support_beacons_text" = "This feature requires an iPhone 4S/5/5S with iOS7 installed.";
-"menu_item_home" = "HOME";
-"menu_item_about" = "ABOUT";
-"menu_item_location" = "LOCATIONS";
-"menu_item_contact" = "CONTACT";
-"menu_item_settings" = "SETTINGS";
-"menu_item_signin" = "SIGN IN";
-"menu_item_user" = "USER PROFILE";
+"title_list_beacons" = "iBeacon";
+"empty_beacons_text" = "This feature is available inside our locations. It requires Bluetooth.";
+"no_support_beacons_text" = "This feature requires an iPhone 4S/5/5S with iOS7.";
+"menu_item_home" = "Home";
+"menu_item_about" = "Over ons";
+"menu_item_location" = "Locaties";
+"menu_item_contact" = "Contact";
+"menu_item_settings" = "Settings";
+"menu_item_signin" = "Sign in";
+"menu_item_user" = "User profile";
+"menu_item_inbox" = "Inbox";
+"menu_item_beacons" = "Inbox";
 
 
-"placeholder_name" = "name";
-"placeholder_email" = "email";
-"placeholder_password" = "password";
-"placeholder_confirm_password" = "confirm password";
-"placeholder_newpass" = "new password";
-"placeholder_confirm_newpass" = "confirm new password";
-"button_signup" = "create an account";
-"button_signin" = "sign in";
-"button_forgotpass" = "forgotten password";
-"button_resetpass" = "change password";
-"button_changepass" = "save new password";
-"button_generatetoken" = "generate new email token";
-"button_logout" = "sign out";
+"placeholder_name" = "Name";
+"placeholder_email" = "Email";
+"placeholder_password" = "Password";
+"placeholder_confirm_password" = "Confirm Password";
+"placeholder_newpass" = "New Password";
+"placeholder_confirm_newpass" = "Confirm new Password";
+"button_signup" = "Sign up";
+"button_signin" = "Sign in";
+"button_forgotpass" = "Forgot your password";
+"button_resetpass" = "Change Password";
+"button_changepass" = "Save New Password";
+"button_generatetoken" = "Generate new email token";
+"button_logout" = "Sign out";
 
 "success_create_account" = "Account created successfully. Please check your mail box for more information.";
 "error_create_account" = "An error occured while creating an account. Please try again.";
-"error_create_account_invalid_email" = "Please fill in a valid email.";
+"error_create_account_invalid_email" = "Please fill in a valid email address.";
 "error_create_account_passwords_match" = "Passwords don't match.";
 "error_create_account_small_password" = "Password should contain more than 4 chars.";
 
 
 "success_forgotpass" = "Account found. Please check your mail box for more information.";
 "error_forgotpass" = "We could not find any account matching this criteria. Please try again.";
-"error_forgotpass_invalid_email" = "Please fill in a valid email.";
+"error_forgotpass_invalid_email" = "Please fill in a valid email address.";
 
 "success_signin" = "Authenticated";
 "error_signin_invalid_email" = "Please insert a valid email.";

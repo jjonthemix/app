@@ -45,7 +45,7 @@
     
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BackButton"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
 
-    [leftButton setTintColor:[UIColor whiteColor]];
+    [leftButton setTintColor:[UIColor blackColor]];
     //[rightButton setTintColor:[UIColor whiteColor]];
     
     [[self navigationItem] setLeftBarButtonItem:leftButton];

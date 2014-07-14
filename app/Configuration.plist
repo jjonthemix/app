@@ -5,20 +5,20 @@
 	<key>testflight</key>
 	<string></string>
 	<key>url</key>
-	<string>http://...</string>
+	<string>http://www.domain.com</string>
 	<key>navigation</key>
 	<array>
 		<dict>
 			<key>label</key>
 			<string>menu_item_home</string>
 			<key>url</key>
-			<string>http://...</string>
+			<string>http://www.domain.com</string>
 		</dict>
 		<dict>
 			<key>label</key>
 			<string>menu_item_about</string>
 			<key>url</key>
-			<string>http://...</string>
+			<string>http://www.domain.com</string>
 		</dict>
 		<dict>
 			<key>label</key>
@@ -30,7 +30,19 @@
 			<key>label</key>
 			<string>menu_item_contact</string>
 			<key>url</key>
-			<string>http://...</string>
+			<string>http://www.domain.com</string>
+		</dict>
+		<dict>
+			<key>label</key>
+			<string>menu_item_signin</string>
+			<key>url</key>
+			<string>Auth:</string>
+		</dict>
+		<dict>
+			<key>label</key>
+			<string>item_menu_inbox</string>
+			<key>url</key>
+			<string>IBAction:openInbox</string>
 		</dict>
 		<dict>
 			<key>label</key>
