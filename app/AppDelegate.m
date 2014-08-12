@@ -44,9 +44,6 @@
     [[NotificarePushLib shared] setDelegate:self];
     [[NotificarePushLib shared] setShouldAlwaysLogBeacons:YES];
     
-    
-    [self registerForAPNS];
-    
     [[NotificarePushLib shared] handleOptions:launchOptions];
     
     [self setNotificarePushLib:[NotificarePushLib shared]];
@@ -60,6 +57,11 @@
     return YES;
 }
 
+- (void)notificarePushLib:(NotificarePushLib *)library onReady:(NSDictionary *)info{
+    
+    [[NotificarePushLib shared] registerForRemoteNotificationsTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+}
 
 - (IIViewDeckController*)generateControllerStack {
     
@@ -154,9 +156,6 @@
 
 
 #pragma General Methods
--(void)registerForAPNS{
-    [[NotificarePushLib shared] registerForRemoteNotificationsTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-}
 
 
 -(void)openPreferences{
